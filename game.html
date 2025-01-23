@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Serenifi - Games Page</title>
+    <style>
+       
+
+        /* Games Section */
+.games-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #fdfcf6;
+}
+
+.games-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #444;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ... (previous styles) ... */
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative; /* Added for positioning play button */
+        }
+
+        .card .image-container {
+            position: relative;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .card img {
+          max-width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 10px;
+        }
+
+        
+        .image-container:hover .play-button {
+            opacity: 1;
+        }
+
+        .play-button {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    background-color: #12121281;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 8px solid rgb(255, 255, 255);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    margin-left: 2px;
+}
+    </style>
+</head>
+<body>
+  <nav class="sidebar" role="navigation">
+    <img src="serenifi-logo.png" alt="Serenifi Logo">
+    <a href="home.html" class="nav-item">🏠 Home</a>
+    <a href="journal.html" class="nav-item">📔 Journal</a>
+    <a href="analytics.html" class="nav-item">📊 Analytics</a>
+    <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+    <a href="reward.html" class="nav-item">🎁 Rewards</a>
+    <a href="game.html" class="nav-item active" aria-current="page">🎮 Games</a>
+    <a href="music.html" class="nav-item">🎵 Music</a>
+    <a href="webinar.html" class="nav-item">💻 Webinar</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="#" class="nav-item">👥 Community</a>
+    <a href="settings.html" class="nav-item">⚙ Settings</a>
+    <a href="#" class="nav-item logout">↪ Logout</a>
+</nav>
+
+    <div class="main-content">
+      <header class="header">
+        <div class="profile-pic"> 
+            <img src="/assets/profile.jpg" alt="Profile">
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+        </div>
+        <div class="header-icons">
+            <button class="icon-button">🔔</button>
+            <button class="icon-button">⚙️</button>
+            <button class="icon-button">👤</button>
+        </div>
+    </header>
+        <h1>Boost Your Wellness Through Play!</h1>
+
+        <section class="games-section"> 
+            <div class="card-grid">
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/puzzle.webp" alt="Puzzle">
+                <button class="play-button"></button>
+               </div>
+                <h3>Puzzle</h3>
+                <p>Improves mental speed...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/crossword.webp" alt="Crossword">
+               <button class="play-button"></button>
+              </div>
+                <h3>Crossword</h3>
+                <p>Improves vocabulary...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/bingo.png" alt="Bingo">
+               <button class="play-button"></button>
+              </div>
+                <h3>Bingo</h3>
+                <p>Ease your mind...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="https://store-images.s-microsoft.com/image/apps.1821.14043557400480129.785a8c27-f3e7-4873-a3fb-94a2c71337d6.ae9110d2-ac3a-45b3-ac1c-d355cdb48c45" alt="Sudoku">
+               <button class="play-button"></button>
+              </div>
+                <h3>Sudoku</h3>
+                <p>Makes you a genius...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/chess.png" alt="Chess">
+               <button class="play-button"></button>
+              </div>
+                <h3>Chess</h3>
+                <p>Improves decision making...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/color-me.png" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Color Me!</h3>
+                <p>Have fun...</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/brain-teaser.avif" alt="Chess">
+               <button class="play-button"></button>
+              </div>
+                <h3>Brain Teaser</h3>
+                <p>Tricks your Brain</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/memory.webp" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Memory</h3>
+                <p>Improves memory</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/bubble.jpg" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Bubble Shooter</h3>
+                <p>Play with colors</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/tic-tac-toe.png" alt="Chess">
+               <button class="play-button"></button>
+              </div>
+                <h3>Tic Tac Toe</h3>
+                <p>Learn a trick!</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="https://cdn6.aptoide.com/imgs/4/f/d/4fd5663abd2716269ce805a607906f5b_icon.png" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Maze: Path of Light</h3>
+                <p>Lightens your soul</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="https://image.winudf.com/v2/image1/Y29tLnBsYXl2YWx2ZS5jb25uZWN0LmRvdHNfaWNvbl8xNzI0NTAxMjY1XzAyNw/icon.png?fakeurl=1&h=240&type=webp" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Dot Link</h3>
+                <p>Connect with colors</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/water-sort.jpg" alt="Chess">
+               <button class="play-button"></button>
+              </div>
+                <h3>Water Sort</h3>
+                <p>Improves problem solving</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/block-puzzle.jpg" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Block Puzzle</h3>
+                <p>Fun with blocks</p>
+              </div>
+              <div class="card">
+                <div class="image-container">
+                <img src="/assets/sweet-fever.png" alt="Color Me!">
+               <button class="play-button"></button>
+              </div>
+                <h3>Sweet Fever</h3>
+                <p>Crush the sweet treat</p>
+              </div>
+            </div>
+          </section>
+          
+    </div>
+</body>
+</html>

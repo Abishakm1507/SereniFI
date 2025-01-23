@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenifi Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .mood-chart {
+            width: 220px;
+            height: 220px;
+        }
+
+        
+        .select-dropdown {
+            padding: 6px 12px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            background: white;
+            font-size: 14px;
+        }
+
+        .chart-container {
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html active" aria-current="page" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+
+        <h2 class="text-xl font-semibold mb-6">Insights</h2>
+        
+        <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="card">
+                <div class="flex justify-between mb-4">
+                    <span class="text-sm font-medium">MEDITATION</span>
+                    <select class="select-dropdown">
+                        <option>Weekly</option>
+                    </select>
+                </div>
+                <div class="progress-circle">
+                    <canvas id="meditationChart"></canvas>
+                </div>
+                <div class="metric-value">25%</div>
+            </div>
+            
+            <div class="card">
+                <div class="flex justify-between mb-4">
+                    <span class="text-sm font-medium">EXERCISE</span>
+                    <select class="select-dropdown">
+                        <option>Weekly</option>
+                    </select>
+                </div>
+                <div class="progress-circle">
+                    <canvas id="exerciseChart"></canvas>
+                </div>
+                <div class="metric-value">79%</div>
+            </div>
+            
+            <div class="card">
+                <div class="flex justify-between mb-4">
+                    <span class="text-sm font-medium">DIGITAL DETOX</span>
+                    <select class="select-dropdown">
+                        <option>Weekly</option>
+                    </select>
+                </div>
+                <div class="progress-circle">
+                    <canvas id="detoxChart"></canvas>
+                </div>
+                <div class="metric-value">52%</div>
+            </div>
+            
+            <div class="card">
+                <div class="flex justify-between mb-2">
+                    <span>MOOD TRACKER</span>
+                    <select class="text-sm">
+                        <option>Weekly</option>
+                    </select>
+                </div>
+                <div class="mood-chart" style="margin-left: 20px;">
+                    <canvas id="moodChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="text-xl font-semibold mb-6">Overall Performance</h2>
+        
+        <div class="flex gap-4 mb-6">
+            <select class="select-dropdown">
+                <option>Timeframe: All-time</option>
+            </select>
+            <select class="select-dropdown">
+                <option>Topic: All</option>
+            </select>
+        </div>
+
+        <div class="grid grid-cols-4 gap-6 mb-6">
+            <div class="card">
+                <h3 class="text-sm mb-2">Challenge Completed</h3>
+                <div class="text-2xl font-bold">27/80</div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Webinars attended</h3>
+                <div class="text-2xl font-bold">12</div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Av. Session Length</h3>
+                <div class="text-2xl font-bold">2m 34s</div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Reward Points</h3>
+                <div class="text-2xl font-bold">40</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-6">
+            <div class="card">
+                <h3 class="text-sm mb-2">Journal</h3>
+                <div class="text-2xl font-bold">64%</div>
+                <div class="chart-container">
+                    <canvas id="journalChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Relaxation Music</h3>
+                <div class="text-2xl font-bold">86%</div>
+                <div class="chart-container">
+                    <canvas id="musicChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Relaxation Games</h3>
+                <div class="text-2xl font-bold">+34%</div>
+                <div class="chart-container">
+                    <canvas id="gamesChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-sm mb-2">Monthly Progress</h3>
+                <div class="chart-container" style="margin-top: 40px;">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to create progress charts
+        function createProgressChart(elementId, percentage, color) {
+            const ctx = document.getElementById(elementId)?.getContext('2d');
+            if (!ctx) return;
+            
+            return new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [percentage, 100 - percentage],
+                        backgroundColor: [color, '#f5f5f5'],
+                        borderWidth: 0,
+                    }],
+                },
+                options: {
+                    cutout: '75%',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false },
+                    },
+                },
+            });
+        }
+
+        // Function to create mood chart
+        function createMoodChart() {
+            const ctx = document.getElementById('moodChart')?.getContext('2d');
+            if (!ctx) return;
+
+            return new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Happy', 'Stressed', 'Relaxed', 'Angry'],
+                    datasets: [{
+                        data: [60, 20, 15, 5],
+                        backgroundColor: ['#9b7edb', '#9e9e9e', '#ce93d8', '#90caf9'],
+                        borderWidth: 0,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { boxWidth: 10, padding: 12 },
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Function to create line charts
+        function createLineChart(elementId) {
+            const ctx = document.getElementById(elementId)?.getContext('2d');
+            if (!ctx) return;
+
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        data: [20, 25, 22, 30, 28, 35],
+                        borderColor: '#2196f3',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 0,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false },
+                    },
+                },
+            });
+        }
+
+        // Initialize all charts when page loads
+        window.onload = function() {
+            createProgressChart('meditationChart', 25, '#ff4081');
+            createProgressChart('exerciseChart', 79, '#4caf50');
+            createProgressChart('detoxChart', 52, '#ff9800');
+            createMoodChart();
+            
+            createLineChart('journalChart');
+            createLineChart('musicChart');
+            createLineChart('gamesChart');
+            
+            // Create monthly progress bar chart
+            const monthlyCtx = document.getElementById('monthlyChart')?.getContext('2d');
+            if (monthlyCtx) {
+                new Chart(monthlyCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            data: [40, 60, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            backgroundColor: '#2196f3',
+                        }],
+                    },
+                    options: {
+                        responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true
+                        },
+                        y: {
+                            display: true
+                        }
+                    }
+
+                    },
+                });
+            }
+        };
+    </script>
+</body>
+</html>

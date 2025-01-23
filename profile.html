@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Edit Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: #f5f7eb;
+            color: #333;
+        }
+
+
+        /* Main Content */
+        .main-content {
+            margin-left: 240px;
+            flex: 1;
+            padding: 20px;
+            background: #f5f7eb;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Section */
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+            position: relative;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f3f3f3;
+        }
+
+        .edit-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .form-wrapper {
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.flex {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group.flex .form-control {
+            flex: 1;
+        }
+
+        .form-wrapper label {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-wrapper input,
+        .form-wrapper select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-save {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item active" aria-current="page">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+
+        <h2>Edit Profile</h2>
+        <section class="profile-section">
+            <div class="profile-avatar">
+                <img src="/assets/profile.jpg" alt="User Avatar">
+                <span class="edit-icon">✏️</span>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <div class="form-group flex">
+                        <div class="form-control">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" placeholder="Lily">
+                        </div>
+                        <div class="form-control">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" placeholder="James">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="lilyjames@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" placeholder="33062 Zboncak Isle">
+                    </div>
+                    <div class="form-group flex">
+                        <div class="form-control">
+                            <label for="city">City</label>
+                            <select id="city">
+                                <option selected>Mehrab</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label for="state">State</label>
+                            <select id="state">
+                                <option selected>Bozorgi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="text" id="contact" placeholder="58077.79">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

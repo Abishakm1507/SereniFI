@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Journal</title>
+    <style>
+        
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width:450px;
+            height:auto;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .plus-overlay {
+            background: rgba(222,184,135,0.8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            height: 120px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .plus-overlay:hover {
+            background: rgba(222,184,135,1);
+        }
+
+        .card-title {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #2c3e50;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .tag {
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            background: #f0f0f0;
+            color: #333;
+            transition: transform 0.2s ease;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #888;
+            font-size: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Folder section */
+        .folder-section {
+            margin-top: 40px;
+        }
+
+        .folder {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .folder-item {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #2c3e50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .folder-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .add-button {
+            background: #deb887;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-button:hover {
+            transform: scale(1.1);
+            background: rgba(222,184,135,0.9);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-240px);
+            }
+
+            .top-nav {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item active" aria-current="page">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+
+        <h2 class="section-title">Recent</h2>
+        
+        <div class="card">
+            <div class="image-grid">
+                <img src="https://static.vecteezy.com/system/resources/previews/030/492/323/large_2x/cute-dog-in-the-car-at-sunset-pet-travel-concept-ai-generated-free-photo.jpg" alt="Cat by window">
+                <img src="https://media.istockphoto.com/id/1493394195/photo/a-female-tourist-in-osaka-is-holding-a-freshly-made-japanese-traditional-street-food-called.jpg?s=612x612&w=0&k=20&c=PR7SudV32O894q90JMyXOslPHm5nwxuk6l9dePPXHss=" alt="Food">
+                <img src="https://www.artst.org/wp-content/uploads/2022/07/The-Colosseum.jpg" alt="Architecture">
+                <img src="https://hblimg.mmtcdn.com/content/hubble/img/ooty/mmt/destination/m_Ooty_activity_mountains_l_368_613.jpg" alt="travelling">
+                <img src="https://images.unsplash.com/photo-1549927969-3ddf8fb2271e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGV1cm9wZSUyMHNob3BwaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Additional image">
+                <div class="plus-overlay">+2</div>
+            </div>
+            
+            <h3 class="card-title">Travel with My Puppy</h3>
+            
+            <div class="tags">
+                <span class="tag">Nature</span>
+                <span class="tag">Travel</span>
+                <span class="tag">Dog Love</span>
+            </div>
+            
+            <p class="card-text">What an enchanting day in Périgueux! The cobblestone streets whispered ancient tales as I strolled through the maze of alleys. The grand cathedral stood proudly, its spires reaching for the sky, as if tickling the clouds. Oh, and the market! The air was....</p>
+            
+            <div class="card-footer">
+                <span>Sunday, Jan 21</span>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+
+        <div class="folder-section">
+            <h2 class="section-title">My Folder</h2>
+            <div class="folder">
+                <div class="folder-item">
+                    Travel
+                </div>
+                <button class="add-button">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

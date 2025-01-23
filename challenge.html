@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Serenifi - Challenge Page</title>
+    <style>
+        .challenge-section {
+            margin-top: 20px;
+        }
+
+        .challenge-section h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            max-width: 600px; /* Adjust this value as needed */
+            width: 90%; /* Ensures responsiveness */
+
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            height: 150px;
+        }
+
+        .card .content {
+            margin-top: 15px;
+        }
+        
+        .card .content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .card .content p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card .details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .details div {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .details .highlight {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .card button {
+            background: #666;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            align-self: center;
+        }
+
+        .card button:hover {
+            background: #444;
+        }
+
+        .upcoming {
+            margin-top: 30px;
+        }
+
+        .upcoming h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .upcoming p {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+  <nav class="sidebar" role="navigation">
+    <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+    <a href="home.html" class="nav-item">🏠 Home</a>
+    <a href="journal.html" class="nav-item">📔 Journal</a>
+    <a href="analytics.html" class="nav-item">📊 Analytics</a>
+    <a href="challenge.html" class="nav-item active" aria-current="page">🎯 Challenge</a>
+    <a href="reward.html" class="nav-item">🎁 Rewards</a>
+    <a href="game.html" class="nav-item">🎮 Games</a>
+    <a href="music.html" class="nav-item">🎵 Music</a>
+    <a href="webinar.html" class="nav-item">💻 Webinar</a>
+    <a href="profile.html" class="nav-item">👤 Profile</a>
+    <a href="#" class="nav-item">👥 Community</a>
+    <a href="settings.html" class="nav-item">⚙ Settings</a>
+    <a href="#" class="nav-item logout">↪ Logout</a>
+</nav>
+
+<<div class="main-content">
+  <header class="header">
+    <div class="profile-pic"> 
+        <img src="/assets/profile.jpg" alt="Profile">
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search...">
+    </div>
+    <div class="header-icons">
+        <button class="icon-button">🔔</button>
+        <button class="icon-button">⚙️</button>
+        <button class="icon-button">👤</button>
+    </div>
+</header>
+    <h2>Challenge</h2>
+    <br>
+        <div class="step-quest-container">
+            <div class="hero-image">
+              <img src="/assets/w.jpg" alt="Walking feet on path with autumn leaves" />
+            </div>
+            
+            <div class="quest-content">
+              <h2>Step Quest</h2>
+              <p class="subtitle">Steps today, rewards tomorrow!</p>
+              
+              <div class="stats-container">
+                <div class="stat-box">
+                  <span class="stat-label">Reward</span>
+                  <div class="stat-value">
+                    15 <span class="coin">🪙</span>
+                  </div>
+                </div>
+                
+                <div class="stat-box">
+                  <span class="stat-label">Step Goal</span>
+                  <div class="stat-value">1K steps</div>
+                </div>
+                
+                <div class="stat-box">
+                  <span class="stat-label">Ends In</span>
+                  <div class="stat-value">11:59 pm</div>
+                </div>
+              </div>
+              
+              <button class="join-button">Join Now</button>
+            </div>
+          </div>
+          
+          <style>
+          .step-quest-container {
+            width: 100%;
+            max-width: 400px;
+            background: #e0e7e3;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          }
+          
+          .hero-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+          }
+          
+          .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .quest-content {
+            padding: 20px;
+          }
+          
+          h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+          }
+          
+          .subtitle {
+            margin: 8px 0 20px;
+            color: #666;
+            font-size: 14px;
+          }
+          
+          .stats-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px;
+          }
+          
+          .stat-box {
+            background: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+          }
+          
+          .stat-label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+          }
+          
+          .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+          }
+          
+          .coin {
+            font-size: 14px;
+          }
+          
+          .join-button {
+            width: 100%;
+            padding: 12px;
+            background: #4a5d53;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+          }
+          
+          .join-button:hover {
+            background: #3d4d44;
+          }
+          </style>
+
+            <div class="upcoming">
+                <h2>Upcoming Challenge</h2>
+                <p>No upcoming challenges</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

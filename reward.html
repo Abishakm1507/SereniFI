@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Reward</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <style>
+
+        body {
+            display: flex;
+            background-color: #f0f2e6;
+            min-height: 100vh;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 4px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #f5f5f5;
+            transform: translateX(5px);
+        }
+
+        .menu-item.active {
+            background-color: #e8f0e8;
+            color: #2c5f2d;
+        }
+
+        .menu-item i {
+            margin-right: 12px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e1e1e1;
+            margin: 15px 0;
+        }
+
+        .search-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .search-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #888;
+        }
+
+        .cards-container  {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px;
+            padding: 20px;
+            max-width: 1000px;
+        }
+
+        .balance-card {
+            background-color: #C3D6CB;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .rewards-card {
+            background-color: #FFE5D9;
+            border: 2px solid #E48885;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .rewards-title{
+            color: #97514F;
+        }
+        .balance-title {
+            color: white;
+        }
+        .balance-title, .rewards-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .balance-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .coin-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-icon {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .action-button {
+            background-color: #687A6F;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom:10px;
+        }
+
+        .action-button:hover {
+            background-color: #596a60;
+        }
+
+        .view-button {
+            background-color: #f8a5a5;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom:10px;
+        }
+
+        .view-button:hover {
+            background-color: #de8181;
+        }
+
+        .tab-container {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tablinks {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tablinks.active {
+            color: #2c5f2d;
+        }
+
+        .tablinks.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2c5f2d;
+        }
+
+        .tabcontent {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        
+        }
+        .tabcontent.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #earn {
+    background-color: #f8fbe9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.earning-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.earning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.earning-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.earning-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.earning-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.btn {
+    background-color: #2c5f2d;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #234924;
+}
+
+.btn.take-test {
+    background-color: #2c5f2d;
+}
+
+.btn.join-now {
+    background-color: #2c5f2d;
+}
+
+        .no-content-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            text-align: center;
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 15px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.active {
+            transform: rotate(180deg);
+        }
+
+        .report-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .report-button:hover {
+            background-color: #ffb300;
+        }
+
+        .footer-text {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 20px 10px;
+            }
+
+            .menu-item span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 70px;
+            }
+
+            .search-bar {
+                margin: 0;
+            }
+        }
+        .coin-icon img, .gift-icon img {
+            width: 56px;
+            height: 56px;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item active" aria-current="page">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+
+
+        <div class="cards-container">
+            <div class="balance-card">
+                <div class="balance-title">SERENEBITS BALANCE</div>
+                <div class="balance-amount">
+                    <div class="coin-icon"><img src="/assets/coin.png" alt="Coin Icon" style="margin-right: 20px;"></div>
+                    40
+                </div>
+                <button class="action-button">Redeem SereneBits</button>
+            </div>
+    
+            <div class="rewards-card">
+                <div class="rewards-title">REWARDS & PRIZES</div>
+                <div class="gift-icon"><img src="/assets/gift.png" alt="Gift Icon"></div>
+                <button class="view-button">View</button>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <button class="tablinks active" data-tab="earn">How To Earn</button>
+            <button class="tablinks" data-tab="history">Earning History</button>
+            <button class="tablinks" data-tab="orders">My Orders</button>
+            <button class="tablinks" data-tab="faq">FAQ</button>
+        </div>
+
+        <div id="earn" class="tabcontent active">
+            <div class="earning-item">
+                <h3>Daily Quiz</h3><br>
+                <div class="earning-header">
+                    <div class="earning-content">
+                        <img src="/assets/quiz.png" alt="Daily Quiz" class="earning-icon">
+                        <div class="earning-text">
+                            <p>Take a Daily Quiz to earn 1 SereneBit</p>
+                            <p>Take a Daily Quiz for 10 consecutive days to earn 5 additional SereneBits</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn take-test">Take Test</a>
+                </div>
+            </div>
+        
+            <div class="earning-item">
+                <h3>Challenge</h3><br>
+                <div class="earning-header"> 
+                    <div class="earning-content">
+                        <img src="/assets/challenge.png" alt="Challenge" class="earning-icon">
+                        <div class="earning-text">
+                            <p>Complete challenges to earn SereneBits</p>
+                            <p>Complete weekly challenge to earn 5 SereneBits</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn join-now">Join Now</a>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="history" class="tabcontent">
+            <div class="no-content-section">
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+                <p style="font-size: 18px; color: #666;">No Earning History Found!</p>
+            </div>
+        </div>
+
+        <div id="orders" class="tabcontent">
+            <div class="no-content-section">
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+                <p style="font-size: 18px; color: #666;">No Orders Found!</p>
+            </div>
+        </div>
+
+        <div id="faq" class="tabcontent">
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        I have redeemed my reward, when can I expect it to be delivered?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Once a reward is redeemed, it usually takes three weeks for processing, after which you will be notified with the tracking information.
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        I have received my reward but I would like to exchange it.
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        We only accept exchanges or returns for products that were incorrectly delivered by us.
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        If my pincode is not serviced, what options are available?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        In such a case, we suggest you provide an alternate address which is serviceable.
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why are the Rewards always out of stock?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Limited quantities of offline rewards are available and tend to sell out quickly. Offline Rewards get restocked every Sunday 6PM. Don't miss out!
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why has my account been blocked?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        To prevent multiple orders from the same individual, our security measures might identify and temporarily restrict accounts associated with the same user. We understand this can be inconvenient so we request you to use only one account for redeeming rewards. In case of any discrepancy kindly report on the button below.
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I get a refund for my order?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Kindly note that Geekbits are neither refundable nor transferable.
+                    </div>
+                </div>
+    
+                <button class="report-button">📝 Report An Issue</button>
+                <p class="footer-text">If you are facing any other issues with your rewards, Please let us know.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+         // Tab Switching Logic
+         document.querySelectorAll('.tablinks').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+
+                // Deactivate all tabs and hide all content
+                document.querySelectorAll('.tablinks').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tabcontent').forEach(content => content.style.display = 'none');
+
+                // Activate the clicked tab and show the corresponding content
+                this.classList.add('active');
+                document.getElementById(targetTab).style.display = 'block';
+            });
+        });
+
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+
+                // Toggle active class and max-height for smooth expansion
+                if (answer.classList.contains('active')) {
+                    answer.classList.remove('active');
+                    answer.style.maxHeight = null;
+                } else {
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                        ans.style.maxHeight = null;
+                    });
+                    answer.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

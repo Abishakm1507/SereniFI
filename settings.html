@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Settings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .settings-container {
+            background-color: rgba(255, 255, 224, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        .settings-section {
+            margin-bottom: 30px;
+        }
+        
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #3a5a40;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .chevron {
+            color: #666;
+        }
+
+        .sub-item {
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item active" aria-current="page">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+        <h2>Settings</h2><br>
+        <div class="settings-container">
+        <div class="settings-section">
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">👤</div>
+                    <div><b>Edit profile</b></div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">⚙️</div>
+                    <div><b>Account preferences</b></div>
+                </div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">🛠️</div>
+                    <div>General preferences</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">🌐</div>
+                    <div>Language</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">🔒</div>
+                    <div><b>Security & Privacy</b></div>
+                </div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">🔑</div>
+                    <div>PassKeys</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">🛡️</div>
+                    <div>Two-step verification</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">🔔</div>
+                    <div>Notifications</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Support & about</h3>
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">💳</div>
+                    <div><b>My Subscription</div></b>
+                </div>
+                                </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">⭐</div>
+                    <div>Upgrade for Free</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">📜</div>
+                    <div>View purchase history</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+             <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">❓</div>
+                    <div><b>Help & Support</b></div>
+                </div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">🎯</div>
+                    <div>Help centre</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">📊</div>
+                    <div>Channel reports</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item sub-item">
+                <div class="settings-left">
+                    <div class="icon">ℹ️</div>
+                    <div>App info</div>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+            <div class="settings-item">
+                <div class="settings-left">
+                    <div class="icon">📋</div>
+                    <div><b>Terms and Policies</div></b>
+                </div>
+                <div class="chevron">❯</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

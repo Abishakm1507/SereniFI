@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Serenifi's mental health awareness webinar">
+    <link rel="stylesheet" href="styles.css">
+    <title>Challenge</title>
+    <link rel="preload" href="serenifi-logo.png" as="image">
+    <style>
+        .challenge-section {
+            margin-top: 20px;
+        }
+
+        .webinar-card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .webinar-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .webinar-details {
+            padding: 15px;
+            background: #e6f4e7;
+        }
+
+        .webinar-details h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .webinar-details p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .event-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .event-info div {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .event-info div span {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .register-button {
+            background: #666;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            align-self: center;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-button:hover {
+            background: #444;
+        }
+
+        .register-button:active {
+            transform: scale(0.98);
+        }
+
+        .upcoming {
+            margin-top: 30px;
+        }
+
+        .upcoming h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .upcoming p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .webinar-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item active" aria-current="page">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="#" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="#" class="nav-item logout">↪ Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+
+        <h2>Webinar</h2>
+        <h3>Today's Webinar</h3><br>
+        <div class="webinar-card">
+            <img src="/assets/webinar.png" alt="Webinar Awareness of Mental Health">
+            <div class="webinar-details">
+                <h2>Awareness of Mental Health</h2>
+                <p>by Zakkeval and Revan Doe</p>
+                <div class="event-info">
+                    <div>
+                        <span>📅 13 January 2025</span>
+                    </div>
+                    <div>
+                        <span>⏰ 7:30 pm to 8:30 pm</span>
+                    </div>
+                </div>
+                <button class="register-button">Register Now</button>
+            </div>
+        </div>
+
+        <div class="upcoming">
+            <h2>Upcoming Webinar</h2>
+            <p>No upcoming Webinars</p>
+        </div>
+    </div>
+
+    <script>
+        // Add search functionality
+        const searchInput = document.querySelector('.search-bar input');
+        searchInput.addEventListener('input', (e) => {
+            // Implement search logic here
+        });
+
+        // Add registration form validation
+
+        const registerButton = document.querySelector('.register-button');
+        registerButton.addEventListener('click', () => {
+            // Implement registration logic
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      background-color: #B0D8DA;
+    }
+
+    .illustration {
+      flex: 1;
+      background-color: #B0D8DA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .illustration img {
+      position: absolute;
+      left: 90px;
+      top: 60px;
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+    }
+
+    .form-container {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 300px 0 100px; /* Reduced left and right padding */
+}
+
+
+    .form-container h2 {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .social-buttons {
+  display: flex;
+  flex-direction: row; /* Arrange buttons side by side */
+  gap: 30px; /* Add spacing between buttons */
+  margin-bottom: 20px;
+}
+
+.google-btn, .facebook-btn {
+  flex: 1; /* Make buttons equal width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #ffffff;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  color: #333333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+    .google-btn img, .facebook-btn img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .google-btn:hover, .facebook-btn:hover {
+      background-color: #f1f1f1;
+    }
+
+    .divider {
+      text-align: center;
+      color: #aaa;
+      margin: 20px 0;
+      font-size: 20px;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 15px;
+    }
+
+    .form-group input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background: none;
+      color: #333;
+      padding: 5px;
+    }
+
+    .form-group input::placeholder {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .form-group .icon {
+      margin-right: 10px;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .form-group.password {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .create-button {
+      background-color: #8dd3d9;
+      border: none;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .create-button:hover {
+      background-color: #6fc2c9;
+      transform: translateY(-3px);
+    }
+
+    .login-link {
+      text-align: left;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .login-link a {
+      color: #8dd3d9;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .language-select {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="illustration">
+    <img src="assets/i.png" alt="Meditating Illustration">
+  </div>
+  <div class="form-container">
+    <h2 style="font-family: 'Athiti', 'serif';">Login</h2>
+    <div class="social-buttons">
+      <button class="google-btn">
+        <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo">
+        <span>Continue with Google</span>
+      </button>
+      <button class="facebook-btn">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook Logo">
+        <span>Continue with Facebook</span>
+      </button>
+    </div>
+    <div class="divider">- OR -</div>
+    <form>
+      <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" placeholder="Email Address" required>
+      </div>
+      <div class="form-group password">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" placeholder="Password" required>
+        <i class="fas fa-eye password-toggle"></i>
+      </div>
+      <button type="submit" class="create-button" onclick="location.href='home.html'">Login</button>
+    </form>
+    <div class="login-link">
+      No account? <a href="sign up.html">Create one</a>
+    </div>
+  </div>
+  <div class="language-select">English (UK) 🔻</div>
+</body>
+</html>
