@@ -3,23 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serenifi - Challenge Page</title>
+    <title>Serenifi - Music Player</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="music.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="shortcut icon" type="image/png" href="src/favicon.png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="music.js" defer></script>
+    <style>
+        /* Temporary fix for missing images */
+        .sidebar img, .profile-pic img {
+            background-color: #ddd;
+            min-height: 40px;
+        }
+        
+        /* Additional styles to ensure content is visible */
+        body {
+            min-height: 100vh;
+            background: #f5f5f5;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 250px;
+        }
+        
+        .c {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .footer-container {
+            padding: 0 20px;
+            margin-left: 250px;
+        }
+    </style>
 </head>
 <body>
     <nav class="sidebar" role="navigation">
-        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <div class="logo-container">
+            <h1>Serenifi</h1>
+        </div>
         <a href="home.html" class="nav-item">🏠 Home</a>
         <a href="journal.html" class="nav-item">📔 Journal</a>
         <a href="analytics.html" class="nav-item">📊 Analytics</a>
         <a href="challenge.html" class="nav-item">🎯 Challenge</a>
         <a href="reward.html" class="nav-item">🎁 Rewards</a>
         <a href="game.html" class="nav-item">🎮 Games</a>
-        <a href="music.html" class="nav-item active" aria-current="page">🎵 Music</a>
+        <a href="music.html" class="nav-item active">🎵 Music</a>
         <a href="webinar.html" class="nav-item">💻 Webinar</a>
         <a href="profile.html" class="nav-item">👤 Profile</a>
         <a href="#" class="nav-item">👥 Community</a>
@@ -29,18 +72,19 @@
 
     <div class="main-content">
         <div class="header">
-                <div class="profile-pic"> 
-                    <img src="/assets/profile.jpg" alt="Profile">
-                </div>
-                <div class="search-container">
-                    <input type="text" class="search-bar" placeholder="Search...">
-                </div>
-                <div class="header-icons">
-                    <button class="icon-button">🔔</button>
-                    <button class="icon-button">⚙️</button>
-                    <button class="icon-button">👤</button>
-                </div>
+            <div class="profile-pic">
+                <span class="profile-icon">👤</span>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
         </div>
+
         <div class="c">
             <div class="header1">
                 <h2>Recommended</h2>
@@ -50,47 +94,7 @@
             <div class="music-grid">
                 <div class="music-item">
                     <div class="image-c">
-                        <img src="https://forarmenians.com/media/images/1733941106-4427.jpeg">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Emotional Piano Music</h4>
-                        <p class="artist-name">SigmaMusicArt</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://yt3.googleusercontent.com/5excREnf-9-jtXu19v7eiiHGkySgkeB2fbrfp6C762ASGKV1SCjqcAnp2B3GRbSPyGvP8G4s8g=s900-c-k-c0x00ffffff-no-rj">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Inspirational Uplifting Calm Piano</h4>
-                        <p class="artist-name">leberchmus</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSu8uOHFiaUG2VxIJKacju8RQsOC5I0yQuXHKi6XHIIpsqlpJ26">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Relaxing piano music</h4>
-                        <p class="artist-name">Clavier-Music</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://media.outshineadventure.com/uploads/package/everest-base-camp-tour-by-overland-from-kathmandu.webp">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Tibet</h4>
-                        <p class="artist-name">Top-Flow</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://yt3.googleusercontent.com/G8SxkfNja8kiqENzhxWoysjAObxUh07F5FXR-RVaeJ_Ffu_O0Qv8wrGAyAJ_ZG81E_JxdTYvSw=s900-c-k-c0x00ffffff-no-rj">
+                        <img src="https://yt3.googleusercontent.com/G8SxkfNja8kiqENzhxWoysjAObxUh07F5FXR-RVaeJ_Ffu_O0Qv8wrGAyAJ_ZG81E_JxdTYvSw=s900-c-k-c0x00ffffff-no-rj" alt="Forest Lullaby">
                         <button class="play-button"></button>
                     </div>
                     <div class="info">
@@ -100,27 +104,7 @@
                 </div>
                 <div class="music-item">
                     <div class="image-c">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxBGHCU3RDHchPeu4Y7HJkDAlV7zkzoPf0yNupcNUd_GyzBxl">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Lofi Study - Calm Peaceful Chill Hop</h4>
-                        <p class="artist-name">FASSounds</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://yt3.googleusercontent.com/t5DHSXZhyD1l4N0kspPn_N82jqZ3YmVHIPQN9oJBIFo4ktlhgOxlEBfEfmY2r8S59hBngggr-w=s160-c-k-c0x00ffffff-no-rj">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Meditation Music</h4>
-                        <p class="artist-name">DanaMusic</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://img.freepik.com/premium-photo/top-mountain-view-generated-by-ai_972969-12386.jpg">
+                        <img src="https://img.freepik.com/premium-photo/top-mountain-view-generated-by-ai_972969-12386.jpg" alt="Beat of Nature">
                         <button class="play-button"></button>
                     </div>
                     <div class="info">
@@ -128,38 +112,19 @@
                         <p class="artist-name">folk_acoustic</p>
                     </div>
                 </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2-rWok3Vd3acpaa-qLJj4RhfgkyWq0UfmqO11944l2HTO3xfh">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Peaceful relaxing piano music</h4>
-                        <p class="artist-name">Clavier-Music</p>
-                    </div>
-                </div>
-                <div class="music-item">
-                    <div class="image-c">
-                        <img src="https://png.pngtree.com/background/20230528/original/pngtree-black-and-white-image-of-a-grand-piano-in-a-room-picture-image_2780189.jpg">
-                        <button class="play-button"></button>
-                    </div>
-                    <div class="info">
-                        <h4>Calm Christmas Piano</h4>
-                        <p class="artist-name">Just Relax</p>
-                    </div>
-                </div>
-                <!-- Repeat music-item div for each track -->
             </div>
         </div>
-        <br>
+
         <div class="c">
             <div class="header1">
                 <h2>Top Chart this Week</h2>
             </div>
-            <div class="latest-release-body flex-space">
+            <div class="latest-release-body">
                 <div class="latest-release-col">
                     <div class="latest-release-entry flex-space">
-                        <div class="latest-release-image"><img src="https://media.licdn.com/dms/image/v2/D5622AQHMHFwQCJ4DDA/feedshare-shrink_800/feedshare-shrink_800/0/1723305352117?e=2147483647&v=beta&t=XP5nmPclqB40N6ibq6nAqTKQH3_pJcRzp1x_-pNItbw"></div>
+                        <div class="latest-release-image">
+                            <img src="https://yt3.googleusercontent.com/G8SxkfNja8kiqENzhxWoysjAObxUh07F5FXR-RVaeJ_Ffu_O0Qv8wrGAyAJ_ZG81E_JxdTYvSw=s900-c-k-c0x00ffffff-no-rj" alt="Forest Lullaby">
+                        </div>
                         <div class="latest-release-info">
                             <p><b>Forest Lullaby</b></p>
                             <p class="latest-release-sub">music_for_video</p>
@@ -169,97 +134,72 @@
                             <p class="latest-release-sub">4:30</p>
                         </div>
                     </div>
-                    <div class="latest-release-entry flex-space">
-                        <div class="latest-release-image"><img src="https://img.freepik.com/premium-photo/top-mountain-view-generated-by-ai_972969-12386.jpg"></div>
-                        <div class="latest-release-info">
-                            <p><b>The Beat of Nature</b></p>
-                            <p class="latest-release-sub">folk_acoustic</p>
-                        </div>
-                        <div class="latest-release-options">
-                            <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                            <p class="latest-release-sub">3:14</p>
-                        </div>
-                    </div>
                 </div>
-                <div class="latest-release-col display-none">
-                    <div class="latest-release-entry flex-space">
-                        <div class="latest-release-image"><img src="https://i.scdn.co/image/ab67616d00001e0250d9964cb142ea7a5e766211"></div>
-                        <div class="latest-release-info">
-                            <p><b>Tibet</b></p>
-                            <p class="latest-release-sub">Top-Flow</p>
-                        </div>
-                        <div class="latest-release-options">
-                            <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                            <p class="latest-release-sub">5:20</p>
-                        </div>
-                    </div>
-                    <div class="latest-release-entry flex-space">
-                        <div class="latest-release-image"><img src="https://i.scdn.co/image/ab67616d00001e0298020147a921b0354b98471a"></div>
-                        <div class="latest-release-info">
-                            <p><b>Emotional Piano Music</b></p>
-                            <p class="latest-release-sub">SigmaMusicArt</p>
-                        </div>
-                        <div class="latest-release-options">
-                            <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                            <p class="latest-release-sub">3:14</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-<br>
-        <div class="c">
-            <div class="header1">
-            <h2>Best Relaxation Music</h2></div>
-            <div class="artist-container flex-space">
-                <div class="popular-artist-entry"><img src="https://img.freepik.com/premium-photo/photo-grand-piano-indoors-theater-place-generative-ai_910608-11884.jpg"><p>Piano</p></div>
-                <div class="popular-artist-entry"><img src="https://s.hdnux.com/photos/01/40/01/10/25170460/3/ratio3x2_1920.jpg"><p>Flute</p></div>
-                <div class="popular-artist-entry"><img src="https://4kwallpapers.com/images/wallpapers/thick-forest-green-2732x2732-14725.jpg"><p>Nature</p></div>
-                <div class="popular-artist-entry"><img src="https://www.kinglarviolin.com/wp-content/uploads/2023/03/b1.jpg"><p>Violin</p></div>
-                <div class="popular-artist-entry display-none"><img src="https://static.vecteezy.com/system/resources/thumbnails/026/175/207/small/tranquility-meets-twilight-as-the-sun-sinks-beyond-serene-zen-stones-ai-generated-photo.jpg"><p>Calm</p></div>
-                <div class="popular-artist-entry display-none"><img src="https://media.istockphoto.com/id/1257951336/photo/transparent-umbrella-under-rain-against-water-drops-splash-background-rainy-weather-concept.jpg?s=612x612&w=0&k=20&c=lNvbIw1wReb-owe7_rMgW8lZz1zElqs5BOY1AZhyRXs="><p>Beats</p></div>
             </div>
         </div>
 
-        <br><br><br><br>
-				
-		<!-- FOOTER -->
-		<footer>
-			<div class="footer-container container flex-space">
-				<div class="music-info flex-space">
-					<div class="music-info-image display-none"><img src="https://pbs.twimg.com/profile_images/1790259165920669696/D7LX5yFR_400x400.jpg"></div>
-					<div class="music-info-name">
-						<p class="music-info-song-name"><b>Tibet</b></p>
-						<p class="music-info-sub">Top-flow</p>
-					</div>
-					<div class="music-info-icon display-none-footer">
-						<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-						<a href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="music-player flex-space">
-					<div class="music-player-controls flex-space">
-						<a class="display-none-520" href=""><i class="fa fa-random" aria-hidden="true"></i></a>
-						<a href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a>
-						<a class="play-pause" href=""><i class="fa fa-pause-circle-o" aria-hidden="true"></i></a>
-						<a href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a>
-						<a class="display-none-520" href=""><i class="fa fa-repeat" aria-hidden="true"></i></a>
-					</div>
-					<div class="music-bar flex-space">
-						<p>1:39</p>
-						<div class="song-bar"><input type="range" step="1"></div>
-						<p>4:44</p>
-					</div>
-				</div>
-				<div class=" display-none-365 music-options flex-space">
-					<a class="display-none-footer" href=""><i class="fa fa-bars" aria-hidden="true"></i></a>
-					<a class="display-none-footer" href=""><i class="fa fa-desktop" aria-hidden="true"></i></a>
-					<i class="fa fa-volume-up" aria-hidden="true"></i>
-					<div class="volume-bar"><input type="range" step="1"></div>
-					<a class="display-none-footer" href=""><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
-				</div>
-			</div>
-		</footer>
+        <div class="c">
+            <div class="header1">
+                <h2>Best Relaxation Music</h2>
+            </div>
+            <div class="artist-container">
+                <div class="popular-artist-entry">
+                    <img src="https://img.freepik.com/premium-photo/photo-grand-piano-indoors-theater-place-generative-ai_910608-11884.jpg" alt="Piano">
+                    <p>Piano</p>
+                </div>
+                <div class="popular-artist-entry">
+                    <img src="https://s.hdnux.com/photos/01/40/01/10/25170460/3/ratio3x2_1920.jpg" alt="Flute">
+                    <p>Flute</p>
+                </div>
+                <div class="popular-artist-entry">
+                    <img src="https://4kwallpapers.com/images/wallpapers/thick-forest-green-2732x2732-14725.jpg" alt="Nature">
+                    <p>Nature</p>
+                </div>
+                <div class="popular-artist-entry">
+                    <img src="https://www.kinglarviolin.com/wp-content/uploads/2023/03/b1.jpg" alt="Violin">
+                    <p>Violin</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="music-info flex-space">
+                <div class="music-info-image">
+                    <img src="https://yt3.googleusercontent.com/G8SxkfNja8kiqENzhxWoysjAObxUh07F5FXR-RVaeJ_Ffu_O0Qv8wrGAyAJ_ZG81E_JxdTYvSw=s900-c-k-c0x00ffffff-no-rj" alt="Current Track">
+                </div>
+                <div class="music-info-name">
+                    <p class="music-info-song-name"><b>Forest Lullaby</b></p>
+                    <p class="music-info-sub">music_for_video</p>
+                </div>
+                <div class="music-info-icon">
+                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="music-player flex-space">
+                <div class="music-player-controls flex-space">
+                    <a class="display-none-520" href="#"><i class="fa fa-random" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                    <a class="play-pause" href="#"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+                    <a class="display-none-520" href="#"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+                </div>
+                <div class="music-bar flex-space">
+                    <p>0:00</p>
+                    <div class="song-bar"><input type="range" step="1" value="0" min="0" max="100"></div>
+                    <p>0:00</p>
+                </div>
+            </div>
+            <div class="music-options flex-space">
+                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-desktop" aria-hidden="true"></i></a>
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <div class="volume-bar"><input type="range" step="1" value="100" min="0" max="100"></div>
+                <a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
