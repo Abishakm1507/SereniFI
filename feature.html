@@ -1,0 +1,79 @@
+<style>
+  body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .feature {
+    opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="feature-container">
+  <div class="feature" style="background-color: #c9e4ca;">
+    <h2 style="color: #3e8e41;">Mood Tracking:</h2>
+    <p style="color: #3e8e41;">Users can select their current mood using an emoji-based interface. This feature promotes self-awareness and helps track emotional trends over time.</p>
+  </div>
+  <div class="feature" style="background-color: #f7d2c4;">
+    <h2 style="color: #e67e73;">Daily Wellness Plans:</h2>
+    <p style="color: #e67e73;">A structured timeline displays daily tasks like meditation, journaling, exercise, and gratitude reflection. Each task has a clear description and duration to guide users in achieving their wellness goals.</p>
+  </div>
+  <div class="feature" style="background-color: #c5cae9;">
+    <h2 style="color: #3f51b5;">Habit Streaks:</h2>
+    <p style="color: #3f51b5;">The app motivates users by tracking their day streaks, providing a sense of accomplishment for maintaining consistent habits.</p>
+  </div>
+  <div class="feature" style="background-color: #ffe0b2;">
+    <h2 style="color: #ff9800;">Challenges and Rewards:</h2>
+    <p style="color: #ff9800;">Includes fun and engaging challenges like step quests, where users can achieve goals (e.g., 1,000 steps) to earn rewards like coins.</p>
+  </div>
+  <div class="feature" style="background-color: #b2fffc;">
+    <h2 style="color: #0097a7;">Daily Quiz:</h2>
+    <p style="color: #0097a7;">Offers a short daily quiz to reinforce positive mental health habits and keep users engaged in learning.</p>
+  </div>
+  <div class="feature" style="background-color: #c8e6c9;">
+    <h2 style="color: #4caf50;">Digital Detox:</h2>
+    <p style="color: #4caf50;">Encourages users to step away from screens for a set duration to recharge mentally.</p>
+  </div>
+  <div class="feature" style="background-color: #ffe082;">
+    <h2 style="color: #ffca28;">Interactive Design:</h2>
+    <p style="color: #ffca28;">Tasks and challenges are interactive, with completion status visually updated, making the experience user-friendly and engaging.</p>
+  </div>
+  <div class="feature" style="background-color: #b3e5fc;">
+    <h2 style="color: #03a9f4;">Upcoming Challenges and Plans:</h2>
+    <p style="color: #03a9f4;">Keeps users informed about upcoming wellness activities and challenges, ensuring they stay on track with their mental health journey.</p>
+  </div>
+</div>
