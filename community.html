@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Community Page</title>
+    <style>
+        /* Previous CSS styles remain the same until .feed-section */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: black;
+        }
+
+        body {
+            display: flex;
+            background-color: #fff;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: white;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a:hover {
+            color: #e63946;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feed-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-section {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .input-section input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-section button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #0095f6;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .input-section button:hover {
+            background-color: #0081d6;
+        }
+
+        /* New Post Styles */
+        .post {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-info {
+            flex: 1;
+        }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .post-content {
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .post-actions button {
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .post-actions button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .like-btn.liked {
+            color: #e63946;
+        }
+
+        .comments-section {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comment-content {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 15px;
+        }
+
+        .add-comment {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .add-comment input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        .add-comment button {
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .add-comment button:hover {
+            background-color: #0081d6;
+        }
+
+        .right-sidebar {
+            width: 250px;
+            background-color: white;
+            padding: 20px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .top-hashtags,
+        .popular-section {
+            margin-bottom: 30px;
+        }
+
+        .top-hashtags h3,
+        .popular-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .top-hashtags ul,
+        .popular-section ul {
+            list-style: none;
+        }
+
+        .top-hashtags ul li,
+        .popular-section ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="analytics.html" class="nav-item">📊 Analytics</a>
+        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
+        <a href="reward.html" class="nav-item">🎁 Rewards</a>
+        <a href="game.html" class="nav-item">🎮 Games</a>
+        <a href="music.html" class="nav-item">🎵 Music</a>
+        <a href="webinar.html" class="nav-item">💻 Webinar</a>
+        <a href="profile.html" class="nav-item">👤 Profile</a>
+        <a href="community.html" class="nav-item active" aria-current="page">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙ Settings</a>
+        <a href="getstarted.html" class="nav-item logout">↪ Logout</a>
+    </nav>
+    <div class="main-content">
+        <header class="header" style="margin-left: 0%;">
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">🔔</button>
+                <button class="icon-button">⚙️</button>
+                <button class="icon-button">👤</button>
+            </div>
+        </header>
+        <h3>Community</h3>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="feed-section">
+            <div class="input-section">
+                <input type="text" placeholder="What's on your mind?">
+                <button>Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-sidebar">
+        <div class="top-hashtags">
+            <h3>Trending</h3>
+            <ul>
+                <li>🔥 #TrendingTopic1</li>
+                <li>✨ #TrendingTopic2</li>
+                <li>🌟 #TrendingTopic3</li>
+                <li>💫 #TrendingTopic4</li>
+            </ul>
+        </div>
+
+        <div class="popular-section">
+            <h3>Suggested Users</h3>
+            <ul>
+                <li>👤 John Doe</li>
+                <li>👤 Jane Smith</li>
+                <li>👤 Alex Johnson</li>
+                <li>👤 Sarah Wilson</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Post data structure
+let posts = [];
+let currentUserId = 1; // Simulating logged in user
+
+class Post {
+    constructor(userId, content, userName, userImage) {
+        this.id = Date.now();
+        this.userId = userId;
+        this.content = content;
+        this.userName = userName;
+        this.userImage = userImage;
+        this.likes = 0;
+        this.comments = [];
+        this.isLiked = false;
+        this.timestamp = new Date().toLocaleString();
+    }
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+    const sendButton = document.querySelector('.input-section button');
+    const thoughtInput = document.querySelector('.input-section input');
+
+    sendButton.addEventListener('click', () => {
+        if (thoughtInput.value.trim()) {
+            createPost(thoughtInput.value);
+            thoughtInput.value = '';
+        }
+    });
+});
+
+function createPost(content) {
+    const post = new Post(
+        currentUserId,
+        content,
+        'Current User',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi-uWmGZzXDkNitp5ZYQV8bFhr7wkKdvEHBw&s'
+    );
+    posts.unshift(post);
+    displayPosts();
+}
+
+function displayPosts() {
+    const feedSection = document.querySelector('.feed-section');
+    const postsHTML = posts.map(post => `
+        <div class="post" data-post-id="${post.id}">
+            <div class="post-header">
+                <img src="${post.userImage}" alt="${post.userName}" class="post-avatar">
+                <div class="post-info">
+                    <h4>${post.userName}</h4>
+                    <span class="timestamp">${post.timestamp}</span>
+                </div>
+            </div>
+            <div class="post-content">
+                ${post.content}
+            </div>
+            <div class="post-actions">
+                <button class="like-btn ${post.isLiked ? 'liked' : ''}" onclick="toggleLike(${post.id})">
+                    👍 ${post.likes} Likes
+                </button>
+                <button onclick="toggleComments(${post.id})">💬 Comments</button>
+                <button onclick="sharePost(${post.id})">📤 Share</button>
+            </div>
+            <div class="comments-section" id="comments-${post.id}" style="display: none;">
+                <div class="comments-list">
+                    ${post.comments.map(comment => `
+                        <div class="comment">
+                            <img src="${comment.userImage}" alt="${comment.userName}" class="comment-avatar">
+                            <div class="comment-content">
+                                <strong>${comment.userName}</strong>
+                                <p>${comment.text}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="add-comment">
+                    <input type="text" placeholder="Add a comment..." id="comment-input-${post.id}">
+                    <button onclick="addComment(${post.id})">Post</button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Insert posts after the input section
+    const inputSection = feedSection.querySelector('.input-section');
+    const existingPosts = feedSection.querySelector('.posts-container');
+    
+    if (existingPosts) {
+        existingPosts.innerHTML = postsHTML;
+    } else {
+        const postsContainer = document.createElement('div');
+        postsContainer.className = 'posts-container';
+        postsContainer.innerHTML = postsHTML;
+        inputSection.insertAdjacentElement('afterend', postsContainer);
+    }
+}
+
+function toggleLike(postId) {
+    const post = posts.find(p => p.id === postId);
+    if (post) {
+        post.isLiked = !post.isLiked;
+        post.likes += post.isLiked ? 1 : -1;
+        displayPosts();
+    }
+}
+
+function toggleComments(postId) {
+    const commentsSection = document.getElementById(`comments-${postId}`);
+    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+}
+
+function addComment(postId) {
+    const post = posts.find(p => p.id === postId);
+    const input = document.getElementById(`comment-input-${postId}`);
+    const commentText = input.value.trim();
+    
+    if (post && commentText) {
+        post.comments.push({
+            userId: currentUserId,
+            userName: 'Current User',
+            userImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi-uWmGZzXDkNitp5ZYQV8bFhr7wkKdvEHBw&s',
+            text: commentText
+        });
+        input.value = '';
+        displayPosts();
+    }
+}
+
+function sharePost(postId) {
+    // Simulating share functionality
+    alert('Post shared successfully!');
+}
+
+    </script>
+</body>
+</html>
