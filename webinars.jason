@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Web Development 101",
+        "presenter": "Divya & Soorya",
+        "date": "January 30, 2025",
+        "time": "5:00 PM EST",
+        "details": "Learn the basics of web development, including HTML, CSS, and JavaScript.",
+        "image": "https://via.placeholder.com/300x150?text=Web+Development+101"
+    },
+    {
+        "title": "Advanced JavaScript",
+        "presenter": "Abisha & Harshini",
+        "date": "February 10, 2025",
+        "time": "6:00 PM EST",
+        "details": "Deep dive into advanced JavaScript topics like closures, async/await, and more.",
+        "image": "https://via.placeholder.com/300x150?text=Advanced+JavaScript"
+    }
+]
