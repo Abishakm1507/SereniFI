@@ -1,695 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment - Serenifi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Athiti', sans-serif;
+        }
 
-:root {
-  --primary-color: #ff833e;
-  --primary-color-dark: #db6f35;
-  --text-dark: #8f8383;
-  --text-light: #767268;
-  --white: #ffffff;
-  --max-width: 1200px;
-  --header-font: "Bebas Neue", sans-serif;
-}
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-img {
-  display: flex;
-  width: 100%;
-}
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
 
-a {
-  text-decoration: none;
-  color: #ffffff;
-  transition: 0.3s;
-}
+        .title h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-body {
-  font-family: "Poppins", sans-serif;
-}
+        .title p {
+            color: #666;
+            font-size: 1.1em;
+        }
 
-nav {
-  position: fixed;
-  isolation: isolate;
-  width: 100%;
-  z-index: 9;
-}
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
 
-.nav__header {
-  padding: 1rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--primary-color);
-}
+        .question-card:hover {
+            transform: translateY(-2px);
+        }
 
-.nav__logo a {
-  font-size: 1.75rem;
-  font-weight: 400;
-  font-family: var(--header-font);
-  color: var(--white);
-}
+        .question-title {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
 
-.nav_menu_btn {
-  font-size: 1.5rem;
-  color: var(--white);
-  cursor: pointer;
-}
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-.nav__links {
-  position: absolute;
-  top: 64px;
-  left: 0;
-  width: 100%;
-  padding: 2rem;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: var(--primary-color);
-  transition: 0.5s;
-  z-index: -1;
-  transform: translateY(-100%);
-}
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #e9ecef;
+        }
 
-.nav__links.open {
-  transform: translateY(0);
-}
+        .radio-option:hover {
+            background: #f8f9fa;
+            border-color: #71b7e6;
+        }
 
-.nav__links a {
-  font-weight: 500;
-  color: var(--white);
-}
+        .radio-option input[type="radio"],
+        .radio-option input[type="checkbox"] {
+            margin-right: 12px;
+            accent-color: #71b7e6;
+        }
 
-.nav__links a:hover {
-  color: var(--text-dark);
-}
+        select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-top: 8px;
+            transition: border-color 0.3s;
+        }
 
-.nav__btns {
-  display: none;
-}
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: #71b7e6;
+        }
 
-.header__container {
-  max-width: var(--max-width);
-  margin: auto;
-  padding-block: 8rem 2rem;
-  padding-inline: 1rem;
-  display: grid;
-  gap: 2rem;
-  overflow-x: hidden;
-}
+        .submit-btn {
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-.header__image {
-  position: relative;
-  isolation: isolate;
-}
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-.header__image::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  max-width: 550px;
-  aspect-ratio: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url("assets/header-bg.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border-radius: 100%;
-  opacity: 0.5;
-  z-index: -1;
-}
+        .privacy-note {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
 
-.header__image img {
-  max-width: 520px;
-  margin-inline: auto;
-}
+        .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
 
-.header_image_card {
-  position: absolute;
-  padding: 0.75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  background-color: var(--white);
-  white-space: nowrap;
-  border-radius: 5px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
 
-.header_image_card span {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            transition: width 0.3s ease;
+        }
 
-.header_image_card-1 {
-  top: 25%;
-  left: 0;
-  transform: translate(-50%, -50%);
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.header_image_card-2 {
-  top: 10%;
-  right: 2rem;
-  transform: translateY(-50%);
-}
+        .question-card {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
 
-.header_image_card-3 {
-  top: 60%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.header_image_card-4 {
-  top: 70%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.header__content h1 {
-  margin-bottom: 1rem;
-  font-size: 5rem;
-  font-weight: 400;
-  font-family: var(--header-font);
-  color: var(--text-dark);
-  line-height: 5.5rem;
-  text-align: center;
-}
-
-.header__content h1 span {
-  color: var(--primary-color);
-}
-
-.header__content p {
-  margin-bottom: 2rem;
-  columns: var(--text-light);
-  line-height: 1.75rem;
-  text-align: center;
-}
-
-.header__content form {
-  margin-bottom: 4rem;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 1rem 0;
-  border-radius: calc(1rem + 10px);
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.header_content .input_row {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex: 1;
-}
-
-.header_content .input_group {
-  flex: 1;
-}
-
-.header_content .input_group h5 {
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-light);
-}
-
-.header_content .input_group > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header__content input {
-  width: 100%;
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  background-color: transparent;
-}
-
-.header__content input::placeholder {
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.header_content .input_group span {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.header__content button {
-  width: 100%;
-  padding: 1rem 2rem;
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  white-space: nowrap;
-  color: var(--white);
-  background-color: var(--primary-color);
-  border-radius: 10px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.header__content button:hover {
-  background-color: var(--primary-color-dark);
-}
-
-.header__content .bar {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  text-align: center;
-}
-
-.language-selector {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.language-selector select,
-.language-selector button {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s;
-}
-
-.language-selector button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-}
-
-.language-selector button:hover {
-  background-color: var(--primary-color-dark);
-}
-
-@media (width > 768px) {
-  nav {
-    position: static;
-    padding-block: 2rem 0;
-    padding-inline: 1rem;
-    max-width: var(--max-width);
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-
-  .nav__header {
-    flex: 1;
-    padding: 0;
-    background-color: transparent;
-  }
-
-  .nav__logo a {
-    color: var(--text-dark);
-  }
-
-  .nav__logo a span {
-    color: var(--primary-color);
-  }
-
-  .nav_menu_btn {
-    display: none;
-  }
-
-  .nav__links {
-    position: static;
-    padding: 0;
-    flex-direction: row;
-    background-color: transparent;
-    transform: none;
-  }
-
-  .nav__links a {
-    padding-block: 5px;
-    color: var(--text-dark);
-    border-bottom: 4px solid transparent;
-  }
-
-  .nav__links a:hover {
-    border-color: var(--primary-color);
-  }
-
-  .nav__btns {
-    display: flex;
-    flex: 1;
-  }
-
-  .nav__btns .btn {
-    padding: 0.75rem 1.5rem;
-    outline: none;
-    border: none;
-    font-size: 1rem;
-    white-space: nowrap;
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-
-  .sign__up {
-    color: var(--text-dark);
-    background-color: transparent;
-  }
-
-  .sign__up:hover {
-    color: var(--primary-color);
-  }
-
-  .sign__in {
-    color: var(--white);
-    background-color: var(--primary-color);
-  }
-
-  .sign__in:hover {
-    background-color: var(--primary-color-dark);
-  }
-
-  .header__container {
-    padding-block: 2rem;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-  }
-
-  .header__image {
-    grid-area: 1/2/2/3;
-  }
-
-  .header__content :is(h1, p, .bar) {
-    text-align: left;
-  }
-}
-
-@media (width > 1024px) {
-  .header__content form {
-    flex-direction: row;
-  }
-
-  .header__content button {
-    width: fit-content;
-  }
-}
+        .question-card:nth-child(1) { animation-delay: 0.1s; }
+        .question-card:nth-child(2) { animation-delay: 0.2s; }
+        .question-card:nth-child(3) { animation-delay: 0.3s; }
+        .question-card:nth-child(4) { animation-delay: 0.4s; }
+        .question-card:nth-child(5) { animation-delay: 0.5s; }
     </style>
-    <title>SereniFI</title>
-  </head>
-  <body>
-    <div class="language-selector">
-      <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="hi">हिन्दी (Hindi)</option>
-        <option value="es">Español (Spanish)</option>
-        <option value="fr">Français (French)</option>
-        <option value="de">Deutsch (German)</option>
-        <option value="ja">日本語 (Japanese)</option>
-        <option value="ko">한국어 (Korean)</option>
-        <option value="zh">中文 (Chinese)</option>
-        <option value="ru">Русский (Russian)</option>
-        <option value="ar">العربية (Arabic)</option>
-        <option value="pt">Português (Portuguese)</option>
-        <option value="it">Italiano (Italian)</option>
-        <option value="nl">Nederlands (Dutch)</option>
-        <option value="pl">Polski (Polish)</option>
-        <option value="tr">Türkçe (Turkish)</option>
-      </select>
-      <button onclick="translatePage()" id="translateBtn">Translate</button>
-    </div>
-    <nav>
-      <div class="nav__header">
-        <div class="nav__logo">
-          <a href="#" data-translate>Sereni<span>FI</span>.</a>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Mental Health Assessment</h1>
+            <p>Help us understand you better to provide personalized support</p>
         </div>
-        <div class="nav_menu_btn" id="menu-btn">
-          <span><i class="ri-menu-line"></i></span>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
-      </div>
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#" data-translate>Home</a></li>
-        <li><a href="#" data-translate>Features</a></li>
-        <li><a href="#" data-translate>Blog</a></li>
-        <li><a href="#" data-translate>About Us</a></li>
-        <li><a href="#" data-translate>Contact</a></li>
-      </ul>
-      <div class="nav__btns">
-        <button class="btn sign__up"><a href="sign up.html" style="color: #000000;" data-translate>Sign Up</a></button>
-        <button class="btn sign__in"><a href="login.html" data-translate>Sign In</a></button>
-      </div>
-    </nav>
-    <header class="header__container">
-      <div class="header__image">
-        <div class="header_imagecard headerimage_card-1">
-          <span><i class="ri-key-line"></i></span>
-          <span data-translate>Mood Tracker</span>
-        </div>
-        <div class="header_imagecard headerimage_card-2">
-          <span><i class="ri-passport-line"></i></span>
-          <span data-translate>Journaling</span>
-        </div>
-        <div class="header_imagecard headerimage_card-3">
-          <span><i class="ri-map-2-line"></i></span>
-          <span data-translate>Integration with Devices</span>
-        </div>
-        <div class="header_imagecard headerimage_card-4">
-          <span><i class="ri-guide-line"></i></span>
-          <span data-translate>Gamification</span>
-        </div>
-        <img src="/assets/i.png" alt="header" />
-      </div>
-      <div class="header__content">
-        <h1 data-translate>IMPROVE<br />YOUR <span>MENTAL HEALTH</span></h1>
-        <p data-translate>
-          Your mind is your greatest asset—nurture it, and it will guide you through the darkest times.
+
+        <form id="assessmentForm" onsubmit="handleSubmit(event)">
+            <div class="question-card">
+                <div class="question-title">1. What is your age range?<span class="required">*</span></div>
+                <select required name="age" onchange="updateProgress()">
+                    <option value="">Select your age range</option>
+                    <option value="13-17">13-17 years</option>
+                    <option value="18-24">18-24 years</option>
+                    <option value="25-34">25-34 years</option>
+                    <option value="35-44">35-44 years</option>
+                    <option value="45-54">45-54 years</option>
+                    <option value="55+">55+ years</option>
+                </select>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">2. How would you rate your stress level in the past week?<span class="required">*</span></div>
+                <div class="options-container">
+                    <label class="radio-option">
+                        <input type="radio" name="stress" value="1" required onchange="updateProgress()">
+                        Very Low - I feel completely relaxed
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="stress" value="2" onchange="updateProgress()">
+                        Low - I feel mostly relaxed
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="stress" value="3" onchange="updateProgress()">
+                        Moderate - I feel somewhat stressed
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="stress" value="4" onchange="updateProgress()">
+                        High - I feel very stressed
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="stress" value="5" onchange="updateProgress()">
+                        Very High - I feel overwhelmed
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">3. How would you describe your sleep quality?<span class="required">*</span></div>
+                <div class="options-container">
+                    <label class="radio-option">
+                        <input type="radio" name="sleep" value="excellent" required onchange="updateProgress()">
+                        Excellent - I sleep well and feel refreshed
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="sleep" value="good" onchange="updateProgress()">
+                        Good - I usually sleep well
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="sleep" value="fair" onchange="updateProgress()">
+                        Fair - My sleep is inconsistent
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="sleep" value="poor" onchange="updateProgress()">
+                        Poor - I often have trouble sleeping
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="sleep" value="very-poor" onchange="updateProgress()">
+                        Very Poor - I have severe sleep issues
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">4. What are your main sources of stress or anxiety?<span class="required">*</span></div>
+                <div class="options-container">
+                    <label class="radio-option">
+                        <input type="checkbox" name="stressors" value="work" onchange="updateProgress()">
+                        Work/School
+                    </label>
+                    <label class="radio-option">
+                        <input type="checkbox" name="stressors" value="relationships" onchange="updateProgress()">
+                        Relationships
+                    </label>
+                    <label class="radio-option">
+                        <input type="checkbox" name="stressors" value="financial" onchange="updateProgress()">
+                        Financial Issues
+                    </label>
+                    <label class="radio-option">
+                        <input type="checkbox" name="stressors" value="health" onchange="updateProgress()">
+                        Health Concerns
+                    </label>
+                    <label class="radio-option">
+                        <input type="checkbox" name="stressors" value="other" onchange="updateProgress()">
+                        Other
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">5. What are your goals for using this platform?<span class="required">*</span></div>
+                <textarea 
+                    name="goals" 
+                    rows="4" 
+                    placeholder="e.g., Reduce stress, Improve sleep, Learn meditation..."
+                    required
+                    onchange="updateProgress()"
+                    oninput="updateProgress()"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" onclick="location.href='home.html'">Complete & Continue</button>
+        </form>
+
+        <p class="privacy-note">
+            🔒 Your privacy is important to us. All information provided will be kept confidential.
         </p>
-        <button class="btn sign__in"><a href="sign up.html" data-translate>GET STARTED</a></button>
-      </div>
-    </header>
-    <script src="https://unpkg.com/scrollreveal"></script>
+    </div>
+
     <script>
-      // Translation function using Google Translate API
-      async function translateText(text, fromLang, toLang) {
-          try {
-              const url = https://translate.googleapis.com/translate_a/single?client=gtx&sl=${fromLang}&tl=${toLang}&dt=t&q=${encodeURI(text)};
-              
-              const response = await fetch(url);
-              if (!response.ok) {
-                  throw new Error(Translation failed: ${response.status});
-              }
-              
-              const data = await response.json();
-              if (!data || !data[0] || !data[0][0]) {
-                  throw new Error('Invalid translation response');
-              }
-              
-              // Extract the translation from the response
-              return data[0][0][0];
-          } catch (error) {
-              console.error('Translation error:', error);
-              return text; // Return original text on error
-          }
-      }
+        function updateProgress() {
+            const form = document.getElementById('assessmentForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let completed = 0;
+            let total = 5; // Total number of questions
 
-      // Initialize translation on page load
-      window.addEventListener('load', function() {
-          console.log('Initializing translation system...');
-          
-          // Find all translatable elements
-          const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, button, span');
-          elements.forEach(el => {
-              // Skip elements that shouldn't be translated
-              if (el.closest('script') || el.closest('style')) {
-                  return;
-              }
-              
-              const text = el.textContent.trim();
-              if (text) {
-                  el.setAttribute('data-translate', '');
-                  el.setAttribute('data-original-text', text);
-                  el.setAttribute('data-original-lang', 'en'); // Store original language
-                  console.log('Added translation for:', text);
-              }
-          });
-          
-          // Try to load previously selected language from localStorage
-          const savedLang = localStorage.getItem('selectedLanguage');
-          if (savedLang) {
-              document.getElementById('languageSelect').value = savedLang;
-              translatePage(); // Automatically translate to saved language
-          }
-      });
+            // Check age
+            if (form.age.value) completed++;
+            
+            // Check stress
+            if (form.stress.value) completed++;
+            
+            // Check sleep
+            if (form.sleep.value) completed++;
+            
+            // Check stressors (at least one)
+            const stressors = form.querySelectorAll('input[name="stressors"]:checked');
+            if (stressors.length > 0) completed++;
+            
+            // Check goals
+            if (form.goals.value.trim().length > 0) completed++;
 
-      // Main translation function
-      async function translatePage() {
-          const targetLang = document.getElementById('languageSelect').value;
-          const translateBtn = document.getElementById('translateBtn');
-          const elements = document.querySelectorAll('[data-translate]');
-          
-          // Save language preference
-          localStorage.setItem('selectedLanguage', targetLang);
-          
-          console.log(Translating to ${targetLang});
-          
-          // Return to English if selected
-          if (targetLang === 'en') {
-              elements.forEach(el => {
-                  el.textContent = el.getAttribute('data-original-text');
-              });
-              return;
-          }
+            const progress = (completed / total) * 100;
+            document.getElementById('progressBar').style.width = ${progress}%;
+        }
 
-          // Update button state
-          translateBtn.disabled = true;
-          translateBtn.textContent = 'Translating...';
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                if (key === 'stressors') {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
 
-          try {
-              // Process translations in batches
-              const batchSize = 5;
-              const batches = Math.ceil(elements.length / batchSize);
-              
-              for (let i = 0; i < batches; i++) {
-                  const start = i * batchSize;
-                  const end = Math.min(start + batchSize, elements.length);
-                  const batchElements = Array.from(elements).slice(start, end);
-                  
-                  // Translate batch
-                  await Promise.all(batchElements.map(async (element) => {
-                      const originalText = element.getAttribute('data-original-text');
-                      const fromLang = element.getAttribute('data-original-lang') || 'en';
-                      
-                      if (!originalText) return;
-                      
-                      try {
-                          console.log(Translating: ${originalText});
-                          const translatedText = await translateText(originalText, fromLang, targetLang);
-                          console.log(Translated to: ${translatedText});
-                          element.textContent = translatedText;
-                      } catch (err) {
-                          console.error(Translation failed for: ${originalText}, err);
-                          element.textContent = originalText;
-                      }
-                  }));
-                  
-                  // Add a small delay between batches to prevent rate limiting
-                  if (i < batches - 1) {
-                      await new Promise(resolve => setTimeout(resolve, 200));
-                  }
-              }
-              
-              translateBtn.textContent = 'Translate';
-          } catch (error) {
-              console.error('Translation failed:', error);
-              // Restore original text
-              elements.forEach(el => {
-                  el.textContent = el.getAttribute('data-original-text');
-              });
-              translateBtn.textContent = 'Error - Try Again';
-          } finally {
-              translateBtn.disabled = false;
-          }
-      }
+            // Store in localStorage
+            localStorage.setItem('assessmentData', JSON.stringify(data));
 
-      // Handle any unhandled errors
-      window.onerror = function(msg, url, lineNo, columnNo, error) {
-          console.error('Error:', msg, '\nURL:', url, '\nLine:', lineNo, '\nColumn:', columnNo, '\nError:', error);
-          return false;
-      };
+            // Show success message and redirect
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Assessment Complete! Redirecting...';
+            submitBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+            
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 1500);
+        }
+
+        // Initialize progress bar
+        document.addEventListener('DOMContentLoaded', updateProgress);
     </script>
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const navLinks = document.getElementById("nav-links");
-        const menuBtnIcon = menuBtn.querySelector("i");
-
-menuBtn.addEventListener("click", (e) => {
-  navLinks.classList.toggle("open");
-
-  const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-});
-
-navLinks.addEventListener("click", (e) => {
-  navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-line");
-});
-
-const scrollRevealOption = {
-  distance: "50px",
-  origin: "bottom",
-  duration: 1000,
-};
-
-ScrollReveal().reveal(".header__image img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-
-ScrollReveal().reveal(".header__content p", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-
-ScrollReveal().reveal(".header__content form", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-
-ScrollReveal().reveal(".header__content .bar", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
-
-ScrollReveal().reveal(".header_image_card", {
-  duration: 1000,
-  interval: 500,
-  delay: 2500,
-});
-    </script>
-  </body>
+</body>
 </html>
