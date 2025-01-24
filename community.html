@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Community Page</title>
     <style>
         /* Previous CSS styles remain the same until .feed-section */
@@ -253,40 +252,21 @@
     </style>
 </head>
 <body>
-    <nav class="sidebar" role="navigation">
-        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
-        <a href="home.html" class="nav-item">🏠 Home</a>
-        <a href="journal.html" class="nav-item">📔 Journal</a>
-        <a href="analytics.html" class="nav-item">📊 Analytics</a>
-        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
-        <a href="reward.html" class="nav-item">🎁 Rewards</a>
-        <a href="game.html" class="nav-item">🎮 Games</a>
-        <a href="music.html" class="nav-item">🎵 Music</a>
-        <a href="webinar.html" class="nav-item">💻 Webinar</a>
-        <a href="profile.html" class="nav-item">👤 Profile</a>
-        <a href="community.html" class="nav-item active" aria-current="page">👥 Community</a>
-        <a href="settings.html" class="nav-item">⚙ Settings</a>
-        <a href="getstarted.html" class="nav-item logout">↪ Logout</a>
-    </nav>
-    <div class="main-content">
-        <header class="header" style="margin-left: 0%;">
-            <div class="profile-pic"> 
-                <img src="/assets/profile.jpg" alt="Profile">
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search...">
-            </div>
-            <div class="header-icons">
-                <button class="icon-button">🔔</button>
-                <button class="icon-button">⚙️</button>
-                <button class="icon-button">👤</button>
-            </div>
-        </header>
-        <h3>Community</h3>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi-uWmGZzXDkNitp5ZYQV8bFhr7wkKdvEHBw&s" alt="Profile Picture">
+        <ul>
+            <li><a href="#"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-compass"></i> Explore</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="feed-section">
+            <h2>Share Your Thoughts</h2>
             <div class="input-section">
                 <input type="text" placeholder="What's on your mind?">
                 <button>Post</button>
@@ -309,148 +289,14 @@
         <div class="popular-section">
             <h3>Suggested Users</h3>
             <ul>
-                <li>👤 John Doe</li>
-                <li>👤 Jane Smith</li>
-                <li>👤 Alex Johnson</li>
-                <li>👤 Sarah Wilson</li>
+                <li>👤 Dev/li>
+                <li>👤 Suriya</li>
+                <li>👤 Abi</li>
+                <li>👤 Sudha</li>
             </ul>
         </div>
     </div>
 
-    <script>
-        // Post data structure
-let posts = [];
-let currentUserId = 1; // Simulating logged in user
-
-class Post {
-    constructor(userId, content, userName, userImage) {
-        this.id = Date.now();
-        this.userId = userId;
-        this.content = content;
-        this.userName = userName;
-        this.userImage = userImage;
-        this.likes = 0;
-        this.comments = [];
-        this.isLiked = false;
-        this.timestamp = new Date().toLocaleString();
-    }
-}
-
-// Initialize the page
-document.addEventListener('DOMContentLoaded', () => {
-    const sendButton = document.querySelector('.input-section button');
-    const thoughtInput = document.querySelector('.input-section input');
-
-    sendButton.addEventListener('click', () => {
-        if (thoughtInput.value.trim()) {
-            createPost(thoughtInput.value);
-            thoughtInput.value = '';
-        }
-    });
-});
-
-function createPost(content) {
-    const post = new Post(
-        currentUserId,
-        content,
-        'Current User',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi-uWmGZzXDkNitp5ZYQV8bFhr7wkKdvEHBw&s'
-    );
-    posts.unshift(post);
-    displayPosts();
-}
-
-function displayPosts() {
-    const feedSection = document.querySelector('.feed-section');
-    const postsHTML = posts.map(post => `
-        <div class="post" data-post-id="${post.id}">
-            <div class="post-header">
-                <img src="${post.userImage}" alt="${post.userName}" class="post-avatar">
-                <div class="post-info">
-                    <h4>${post.userName}</h4>
-                    <span class="timestamp">${post.timestamp}</span>
-                </div>
-            </div>
-            <div class="post-content">
-                ${post.content}
-            </div>
-            <div class="post-actions">
-                <button class="like-btn ${post.isLiked ? 'liked' : ''}" onclick="toggleLike(${post.id})">
-                    👍 ${post.likes} Likes
-                </button>
-                <button onclick="toggleComments(${post.id})">💬 Comments</button>
-                <button onclick="sharePost(${post.id})">📤 Share</button>
-            </div>
-            <div class="comments-section" id="comments-${post.id}" style="display: none;">
-                <div class="comments-list">
-                    ${post.comments.map(comment => `
-                        <div class="comment">
-                            <img src="${comment.userImage}" alt="${comment.userName}" class="comment-avatar">
-                            <div class="comment-content">
-                                <strong>${comment.userName}</strong>
-                                <p>${comment.text}</p>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="add-comment">
-                    <input type="text" placeholder="Add a comment..." id="comment-input-${post.id}">
-                    <button onclick="addComment(${post.id})">Post</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    // Insert posts after the input section
-    const inputSection = feedSection.querySelector('.input-section');
-    const existingPosts = feedSection.querySelector('.posts-container');
-    
-    if (existingPosts) {
-        existingPosts.innerHTML = postsHTML;
-    } else {
-        const postsContainer = document.createElement('div');
-        postsContainer.className = 'posts-container';
-        postsContainer.innerHTML = postsHTML;
-        inputSection.insertAdjacentElement('afterend', postsContainer);
-    }
-}
-
-function toggleLike(postId) {
-    const post = posts.find(p => p.id === postId);
-    if (post) {
-        post.isLiked = !post.isLiked;
-        post.likes += post.isLiked ? 1 : -1;
-        displayPosts();
-    }
-}
-
-function toggleComments(postId) {
-    const commentsSection = document.getElementById(`comments-${postId}`);
-    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
-}
-
-function addComment(postId) {
-    const post = posts.find(p => p.id === postId);
-    const input = document.getElementById(`comment-input-${postId}`);
-    const commentText = input.value.trim();
-    
-    if (post && commentText) {
-        post.comments.push({
-            userId: currentUserId,
-            userName: 'Current User',
-            userImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi-uWmGZzXDkNitp5ZYQV8bFhr7wkKdvEHBw&s',
-            text: commentText
-        });
-        input.value = '';
-        displayPosts();
-    }
-}
-
-function sharePost(postId) {
-    // Simulating share functionality
-    alert('Post shared successfully!');
-}
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
