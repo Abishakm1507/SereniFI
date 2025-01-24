@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Serenifi - Wellness Platform</title>
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+        .mood-section {
+            background: #fff9f0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mood-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .emoji-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .emoji-item:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        .emoji {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .emoji-label {
+            font-size: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #deb887;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .plans-section {
+            margin-top: 30px;
+        }
+
+        .plans-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+        }
+
+        .task-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .task-item::before {
+            content: '';
+            position: absolute;
+            left: -23px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .task-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .task-icon {
+            font-size: 24px;
+        }
+
+        .task-info h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .task-info p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .streak-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .streak-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .streak-label {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .streak-fire {
+            font-size: 48px;
+            margin-left: 15px;
+        }
+
+        .challenge-section {
+            background: #e0e5d5;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            background: #d0d5c5;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .tab.active {
+            background: #e0e5d5;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" role="navigation">
+        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
+        <a href="home.html" class="nav-item active" aria-current="page">🏠 Home</a>
+        <a href="journal.html" class="nav-item">📔 Journal</a>
+        <a href="game.html" class="nav-item">🎮 Game</a>
+        <a href="webinar.html" class="nav-item">🎥 Webinar</a>
+        <a href="community.html" class="nav-item">👥 Community</a>
+        <a href="settings.html" class="nav-item">⚙️ Settings</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="header" style="margin-left: 0%;">
+            <h1>Hello, Lily!</h1>
+            <div class="profile-pic"> 
+                <img src="/assets/profile.jpg" alt="Profile">
+            </div>
+            <div class="header-icons">
+                <span>🔔</span>
+                <span>⚙️</span>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <div class="main-column">
+                <section class="mood-section">
+                    <h2 class="mood-title">How are you feeling right now?</h2>
+                    <div class="emoji-grid">
+                        <div class="emoji-item">
+                            <span class="emoji">😊</span>
+                            <span class="emoji-label">Happy</span>
+                        </div>
+                        <div class="emoji-item">
+                            <span class="emoji">😔</span>
+                            <span class="emoji-label">Sad</span>
+                        </div>
+                        <div class="emoji-item">
+                            <span class="emoji">😌</span>
+                            <span class="emoji-label">Calm</span>
+                        </div>
+                        <div class="emoji-item">
+                            <span class="emoji">😤</span>
+                            <span class="emoji-label">Angry</span>
+                        </div>
+                        <div class="emoji-item">
+                            <span class="emoji">😰</span>
+                            <span class="emoji-label">Anxious</span>
+                        </div>
+                        <div class="emoji-item">
+                            <span class="emoji">😴</span>
+                            <span class="emoji-label">Tired</span>
+                        </div>
+                    </div>
+                    <button class="submit-btn">Submit</button>
+                </section>
+
+                <!-- Rest of your content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Button and Window -->
+    <div class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle">
+            <span class="chat-icon">💭</span>
+            <span class="close-icon" style="display: none;">✕</span>
+        </button>
+        
+        <div id="chat-window" class="chat-window" style="display: none;">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Chat with Sunny</h2>
+                    <button class="minimize-btn">−</button>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="user-input" placeholder="Type your message here...">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="chatbot.js"></script>
+    <script>
+        // Chat window toggle functionality
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWindow = document.getElementById('chat-window');
+        const minimizeBtn = document.querySelector('.minimize-btn');
+        const chatIcon = document.querySelector('.chat-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        chatToggle.addEventListener('click', () => {
+            chatWindow.style.display = chatWindow.style.display === 'none' ? 'block' : 'none';
+            chatIcon.style.display = chatIcon.style.display === 'none' ? 'block' : 'none';
+            closeIcon.style.display = closeIcon.style.display === 'none' ? 'block' : 'none';
+        });
+
+        minimizeBtn.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+            chatIcon.style.display = 'block';
+            closeIcon.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
