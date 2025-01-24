@@ -3,190 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join Serenifi's mental health awareness webinar">
-    <link rel="stylesheet" href="styles.css">
-    <title>Challenge</title>
-    <link rel="preload" href="serenifi-logo.png" as="image">
+    <title>Webinars</title>
     <style>
-        .challenge-section {
-            margin-top: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
-
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
         .webinar-card {
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            overflow: hidden;
-            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
         }
-
         .webinar-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .webinar-details {
-            padding: 15px;
-            background: #e6f4e7;
-        }
-
-        .webinar-details h2 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #2c3e50;
-        }
-
-        .webinar-details p {
-            font-size: 12px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .event-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .event-info div {
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .event-info div span {
-            display: block;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .register-button {
-            background: #666;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            text-align: center;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 14px;
-            align-self: center;
-            width: 100%;
-            transition: background-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .register-button:hover {
-            background: #444;
-        }
-
-        .register-button:active {
-            transform: scale(0.98);
-        }
-
-        .upcoming {
-            margin-top: 30px;
-        }
-
-        .upcoming h2 {
-            font-size: 20px;
+            height: auto;
+            border-radius: 8px;
             margin-bottom: 10px;
         }
-
-        .upcoming p {
-            font-size: 14px;
-            color: #777;
+        .webinar-card h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .webinar-card {
-                width: 100%;
-            }
+        .webinar-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .register-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .register-button:hover {
+            background-color: #45a049;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+        }
+        .modal-content input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .modal-content button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-content button.close {
+            background-color: #ff5e5e;
+        }
+        .modal-content button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
-    <nav class="sidebar" role="navigation">
-        <img src="/assets/serenifi-logo.png" alt="Serenifi Logo">
-        <a href="home.html" class="nav-item">🏠 Home</a>
-        <a href="journal.html" class="nav-item">📔 Journal</a>
-        <a href="analytics.html" class="nav-item">📊 Analytics</a>
-        <a href="challenge.html" class="nav-item">🎯 Challenge</a>
-        <a href="reward.html" class="nav-item">🎁 Rewards</a>
-        <a href="game.html" class="nav-item">🎮 Games</a>
-        <a href="music.html" class="nav-item">🎵 Music</a>
-        <a href="webinar.html" class="nav-item active" aria-current="page">💻 Webinar</a>
-        <a href="profile.html" class="nav-item">👤 Profile</a>
-        <a href="#" class="nav-item">👥 Community</a>
-        <a href="settings.html" class="nav-item">⚙ Settings</a>
-        <a href="#" class="nav-item logout">↪ Logout</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="header">
-            <div class="profile-pic"> 
-                <img src="/assets/profile.jpg" alt="Profile">
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search...">
-            </div>
-            <div class="header-icons">
-                <button class="icon-button">🔔</button>
-                <button class="icon-button">⚙️</button>
-                <button class="icon-button">👤</button>
-            </div>
-        </header>
-
-        <h2>Webinar</h2>
-        <h3>Today's Webinar</h3><br>
-        <div class="webinar-card">
-            <img src="/assets/webinar.png" alt="Webinar Awareness of Mental Health">
-            <div class="webinar-details">
-                <h2>Awareness of Mental Health</h2>
-                <p>by Zakkeval and Revan Doe</p>
-                <div class="event-info">
-                    <div>
-                        <span>📅 13 January 2025</span>
-                    </div>
-                    <div>
-                        <span>⏰ 7:30 pm to 8:30 pm</span>
-                    </div>
-                </div>
-                <button class="register-button">Register Now</button>
-            </div>
+    <div class="container">
+        <h1>Upcoming Webinars</h1>
+        <div id="webinar-list">
+            <!-- Webinar cards will be dynamically inserted here -->
         </div>
+    </div>
 
-        <div class="upcoming">
-            <h2>Upcoming Webinar</h2>
-            <p>No upcoming Webinars</p>
+    <!-- Modal for registration -->
+    <div class="modal" id="registration-modal">
+        <div class="modal-content">
+            <h2>Register for Webinar</h2>
+            <p id="webinar-title"></p>
+            <input type="text" id="name" placeholder="Enter your name">
+            <input type="email" id="email" placeholder="Enter your email">
+            <input type="tel" id="contact" placeholder="Enter your contact number">
+            <button id="submit-registration">Register</button>
+            <button class="close" id="close-modal">Cancel</button>
         </div>
     </div>
 
     <script>
-        // Add search functionality
-        const searchInput = document.querySelector('.search-bar input');
-        searchInput.addEventListener('input', (e) => {
-            // Implement search logic here
+        // Embedded JSON object for webinars
+        const webinars = [
+            {
+                "title": "Web Development 101",
+                "presenter": "Divya & Soorya",
+                "date": "January 30, 2025",
+                "time": "5:00 PM EST",
+                "details": "Learn the basics of web development, including HTML, CSS, and JavaScript.",
+                "image": "https://via.placeholder.com/300x150?text=Web+Development+101"
+            },
+            {
+                "title": "Advanced JavaScript",
+                "presenter": "Abisha & Harshini",
+                "date": "February 10, 2025",
+                "time": "6:00 PM EST",
+                "details": "Deep dive into advanced JavaScript topics like closures, async/await, and more.",
+                "image": "https://via.placeholder.com/300x150?text=Advanced+JavaScript"
+            }
+        ];
+
+        // Populate webinar list dynamically
+        const webinarList = document.getElementById('webinar-list');
+        const modal = document.getElementById('registration-modal');
+        const closeModal = document.getElementById('close-modal');
+        const submitButton = document.getElementById('submit-registration');
+        const webinarTitleElement = document.getElementById('webinar-title');
+        let currentWebinarTitle = "";
+
+        webinars.forEach(webinar => {
+            const webinarCard = document.createElement('div');
+            webinarCard.className = 'webinar-card';
+
+            webinarCard.innerHTML = `
+                <img src="${webinar.image}" alt="${webinar.title}">
+                <h2>${webinar.title}</h2>
+                <p><strong>Presenter:</strong> ${webinar.presenter}</p>
+                <p><strong>Date:</strong> ${webinar.date}</p>
+                <p><strong>Time:</strong> ${webinar.time}</p>
+                <p>${webinar.details}</p>
+                <button class="register-button">Register Now</button>
+            `;
+
+            webinarCard.querySelector('.register-button').addEventListener('click', () => {
+                modal.style.display = "flex";
+                currentWebinarTitle = webinar.title;
+                webinarTitleElement.textContent = webinar.title;
+            });
+
+            webinarList.appendChild(webinarCard);
         });
 
-        // Add registration form validation
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = "none";
+        });
 
-        const registerButton = document.querySelector('.register-button');
-        registerButton.addEventListener('click', () => {
-            // Implement registration logic
+        // Submit registration
+        submitButton.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+
+            if (name && email && contact) {
+                alert(Registration Successful!\nWebinar: ${currentWebinarTitle}\nName: ${name}\nEmail: ${email}\nContact: ${contact});
+                modal.style.display = "none";
+            } else {
+                alert("Please fill out all fields!");
+            }
+        });
+
+        // Close modal if clicked outside content
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
         });
     </script>
 </body>
